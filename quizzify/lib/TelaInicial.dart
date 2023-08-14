@@ -7,7 +7,14 @@ class TelaInicial extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Quizzify'),
+        title: const Text(
+            'Quizzify',
+          style: TextStyle(
+            fontFamily: 'Poppins',
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+          )
+        ),
         centerTitle: true,
       ),
       body: Center(
@@ -15,17 +22,18 @@ class TelaInicial extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Image.asset('assets/pensando.png'),
-            Text(
-              'Seja bem-vindo ao Quizzify!',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-              textAlign: TextAlign.center,
+            const Padding(
+              padding: EdgeInsets.only(left: 16.0, right: 16.0),
+              child: Text(
+                'Seja bem-vindo ao Quizzify!',
+                style: TextStyle(
+                    fontFamily: 'Poppins',
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold),
+                textAlign: TextAlign.center,
+              ),
             ),
-            Text(
-              'Aplicação feita por João Sales e Luiz Ryan.',
-              style: TextStyle(fontSize: 20),
-              textAlign: TextAlign.center,
-            ),
-            SizedBox(height: 20),
+            SizedBox(height: 10),
             ElevatedButton(
               onPressed: () {
                 // Navega para a tela de quiz
@@ -38,12 +46,19 @@ class TelaInicial extends StatelessWidget {
                 primary: Color(0xFF92E3A9), // Cor de fundo
               ),
               child: Text(
-                'JOGAR',
+                'Jogar',
                 style: TextStyle(
+                  fontFamily: 'Poppins',
                   fontSize: 20,
                   color: Colors.black, // Cor do texto
                 ),
               ),
+            ),
+            SizedBox(height: 40),
+            Text(
+              'dev by João Sales e Luiz Ryan.',
+              style: TextStyle(fontFamily: 'Poppins', fontSize: 16),
+              textAlign: TextAlign.center,
             ),
           ],
         ),

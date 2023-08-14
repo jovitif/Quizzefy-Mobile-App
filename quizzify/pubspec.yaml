@@ -59,6 +59,11 @@ flutter:
      - assets/happy.png
      - assets/dancing.gif
    uses-material-design: true
+
+   fonts:
+     - family: Poppins
+       fonts:
+         - asset: assets/Poppins-Medium.ttf
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
@@ -93,3 +98,4 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+

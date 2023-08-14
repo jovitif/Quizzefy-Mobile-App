@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:quizzify/Resposta.dart';
 
 class Pergunta {
@@ -20,8 +21,8 @@ class Pergunta {
       [
         Resposta('Lule', true),
         Resposta('Bolsonare', false),
-        Resposta('Trumpe', false),
-        Resposta('Taylor Swifte', false),
+        Resposta('Trump', false),
+        Resposta('Taylor Swift', false),
       ],
     ),
     Pergunta(
@@ -44,6 +45,7 @@ class Pergunta {
     ),
     // Adicione mais perguntas aqui
     Pergunta(
+
       'Qual é o maior planeta do sistema solar?',
       [
         Resposta('Terra', false),
