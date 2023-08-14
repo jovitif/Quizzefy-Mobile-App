@@ -6,7 +6,14 @@ class TelaIntermediaria extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Quizzify'),
+        title: const Text(
+            'Quizzify',
+            style: TextStyle(
+              fontFamily: 'Poppins',
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+            )
+        ),
         centerTitle: true,
       ),
       body: Center(
@@ -17,16 +24,25 @@ class TelaIntermediaria extends StatelessWidget {
             Image.asset('assets/dancing.gif'),
 
             SizedBox(height: 20),
-            Text(
+            const Text(
               'Instruções do Jogo:',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                  fontFamily: 'Poppins',
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold
+              ),
               textAlign: TextAlign.center,
             ),
-            Text(
+            const SizedBox(height: 2),
+            const Text(
               'Responda às perguntas corretamente para acumular pontos!',
-              style: TextStyle(fontSize: 16),
+              style: TextStyle(
+                  fontFamily: 'Poppins',
+                  fontSize: 16
+              ),
               textAlign: TextAlign.center,
             ),
+            const SizedBox(height: 30),
             ElevatedButton(
               onPressed: () {
                 // Navega para a tela de quiz
@@ -36,15 +52,16 @@ class TelaIntermediaria extends StatelessWidget {
               style: ElevatedButton.styleFrom(
                 primary: Color(0xFF92E3A9), // Cor de fundo
               ),
-              child: Text(
-                'PLAY',
+              child: const Text(
+                'Começar',
                 style: TextStyle(
+                  fontFamily: 'Poppins',
                   fontSize: 20,
                   color: Colors.black, // Cor do texto
                 ),
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
           ],
         ),
       ),
