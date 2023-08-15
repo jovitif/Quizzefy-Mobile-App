@@ -6,19 +6,19 @@ class ResultadoScreen extends StatelessWidget {
   ResultadoScreen(this.pontos);
 
   String _obterMensagem() {
-    if (pontos < 7) {
-      return 'Precisa estudar mais meu amigo! mas você ira vencer';
-    } else if (pontos >= 7 && pontos <= 9) {
-      return 'Cai na real tu consegue melhorar mais! eu acredito em ti';
+    if (pontos < 5) {
+      return 'Precisa estudar mais, meu amigo. Confio no seu potencial!';
+    } else if (pontos >= 5 && pontos <= 11) {
+      return 'Você consegue melhorar. Confio que você irá vencer!';
     } else {
-      return 'HOOWWWW LOOOK AT HIMMMMM, PARECE QUE TEMOS UM ALBERTO AISTEN ENTRE NÓS';
+      return 'Um gênio dos conhecimentso gerais, hein? Você é bom demais!';
     }
   }
 
   String _obterEmoji() {
-    if (pontos < 7) {
+    if (pontos < 5) {
       return 'assets/bad-review.png'; // Substitua com o caminho do emoji triste
-    } else if (pontos >= 7 && pontos <= 9) {
+    } else if (pontos >= 5 && pontos <= 11) {
       return 'assets/calm.png'; // Substitua com o caminho do emoji calmo
     } else {
       return 'assets/happy.png'; // Substitua com o caminho do emoji feliz
@@ -29,7 +29,13 @@ class ResultadoScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Resultado'),
+        title: const Text('Quizzify',
+            style: TextStyle(
+              fontFamily: 'Poppins',
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+            )),
+        centerTitle: true,
       ),
       body: Center(
         child: Column(
@@ -38,16 +44,29 @@ class ResultadoScreen extends StatelessWidget {
           children: <Widget>[
             Text(
               'Pontuação Final:',
-              style: TextStyle(fontSize: 24),
+              style: TextStyle(
+                fontSize: 24,
+                fontFamily: 'Poppins',
+              ),
             ),
             Text(
               '$pontos pontos',
-              style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                  fontSize: 36,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'Poppins'),
             ),
             SizedBox(height: 20),
-            Text(
-              _obterMensagem(),
-              style: TextStyle(fontSize: 18),
+            Padding(
+              padding: EdgeInsets.only(left: 16.0, right: 16.0),
+              child: Text(
+                _obterMensagem(),
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 18,
+                  fontFamily: 'Poppins',
+                ),
+              ),
             ),
             SizedBox(height: 20),
             Image.asset(

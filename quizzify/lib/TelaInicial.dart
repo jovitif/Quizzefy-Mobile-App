@@ -13,7 +13,8 @@ class TelaInicial extends StatelessWidget {
             fontFamily: 'Poppins',
             fontSize: 16,
             fontWeight: FontWeight.bold,
-          )
+            color: Color(0xFF4A148C),
+          ),
         ),
         centerTitle: true,
       ),
@@ -43,14 +44,14 @@ class TelaInicial extends StatelessWidget {
                         builder: (context) => TelaIntermediaria()));
               },
               style: ElevatedButton.styleFrom(
-                primary: Color(0xFF92E3A9), // Cor de fundo
+                primary: Color(0xFFE1BEE7), // Cor de fundo
               ),
               child: Text(
                 'Jogar',
                 style: TextStyle(
                   fontFamily: 'Poppins',
                   fontSize: 20,
-                  color: Colors.black, // Cor do texto
+                  color: Color(0xFF4A148C), // Cor do texto
                 ),
               ),
             ),
