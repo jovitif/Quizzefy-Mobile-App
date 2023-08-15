@@ -30,6 +30,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  intl: ^0.18.0
 
   flutter_hooks: ^0.18.0
 
@@ -78,6 +81,7 @@ flutter:
      - assets/portugues.webp
      - assets/matematica.jpg
    uses-material-design: true
+   generate: true
 
    fonts:
      - family: Poppins

@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:quizzify/QuizScreen.dart';
 import 'package:quizzify/TelaIntermediaria.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:intl/intl.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:quizzify/l10n/L10n.dart';
 
 class TelaInicial extends StatelessWidget {
   @override
@@ -8,7 +12,7 @@ class TelaInicial extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-            'Quizzify',
+          'Quizzify',
           style: TextStyle(
             fontFamily: 'Poppins',
             fontSize: 16,
@@ -26,7 +30,8 @@ class TelaInicial extends StatelessWidget {
             const Padding(
               padding: EdgeInsets.only(left: 16.0, right: 16.0),
               child: Text(
-                'Seja bem-vindo ao Quizzify!',
+                "Seja bem-vindo ao Quizzify!",
+                // AppLocalizations.of(context)!.language,
                 style: TextStyle(
                     fontFamily: 'Poppins',
                     fontSize: 24,

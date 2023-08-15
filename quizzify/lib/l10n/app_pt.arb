@@ -1,0 +1,5 @@
+{
+  "language": "Portugues",
+  "helloWorld": "Ola mundo!",
+  "hello": "Ola {username}"
+}
