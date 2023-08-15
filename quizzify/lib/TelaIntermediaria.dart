@@ -6,14 +6,13 @@ class TelaIntermediaria extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-            'Quizzify',
+        title: const Text('Quizzify',
             style: TextStyle(
               fontFamily: 'Poppins',
               fontSize: 16,
               fontWeight: FontWeight.bold,
-            )
-        ),
+              color: Color(0xFF4A148C),
+            )),
         centerTitle: true,
       ),
       body: Center(
@@ -27,19 +26,16 @@ class TelaIntermediaria extends StatelessWidget {
             const Text(
               'Instruções do Jogo:',
               style: TextStyle(
-                  fontFamily: 'Poppins',
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold
+                fontFamily: 'Poppins',
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
               ),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 2),
             const Text(
               'Responda às perguntas corretamente para acumular pontos!',
-              style: TextStyle(
-                  fontFamily: 'Poppins',
-                  fontSize: 16
-              ),
+              style: TextStyle(fontFamily: 'Poppins', fontSize: 16),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 30),
@@ -50,14 +46,14 @@ class TelaIntermediaria extends StatelessWidget {
                     MaterialPageRoute(builder: (context) => QuizScreen()));
               },
               style: ElevatedButton.styleFrom(
-                primary: Color(0xFF92E3A9), // Cor de fundo
+                primary: Color(0xFFE1BEE7), // Cor de fundo
               ),
               child: const Text(
                 'Começar',
                 style: TextStyle(
                   fontFamily: 'Poppins',
                   fontSize: 20,
-                  color: Colors.black, // Cor do texto
+                  color: Color(0xFF4A148C), // Cor do texto
                 ),
               ),
             ),

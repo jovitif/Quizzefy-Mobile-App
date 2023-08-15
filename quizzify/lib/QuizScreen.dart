@@ -20,12 +20,16 @@ class _QuizScreenState extends State<QuizScreen> {
     Pergunta.perguntas.shuffle(); // Embaralha as perguntas no início do quiz
   }
 
-  void _responder(bool correta) {
+  void _responder(Resposta alternativa) {
     setState(() {
       mostraResposta = true;
     });
 
-    if (correta && canClick) {
+    if (!alternativa.correta && canClick) {
+      pontos--;
+      alternativa.setState(true);
+    }
+    if (alternativa.correta && canClick) {
       pontos++;
     }
 
@@ -57,6 +61,7 @@ class _QuizScreenState extends State<QuizScreen> {
               fontFamily: 'Poppins',
               fontSize: 16,
               fontWeight: FontWeight.bold,
+              color: Color(0xFF4A148C),
             )),
         centerTitle: true,
       ),
@@ -78,7 +83,13 @@ class _QuizScreenState extends State<QuizScreen> {
                 ),
               ),
             ),
-            SizedBox(height: 20),
+            if (Pergunta.perguntas[perguntaIndex].img.isNotEmpty)
+              Image.asset(
+                Pergunta.perguntas[perguntaIndex].img,
+                width: MediaQuery.of(context).size.width * 0.6,
+                // Defina o tamanho da imagem conforme necessário
+                height: MediaQuery.of(context).size.height * 0.209,
+              ),
             Column(
               children: Pergunta.perguntas[perguntaIndex].alternativas
                   .map((alternativa) => _buildRespostaButton(alternativa))
@@ -108,29 +119,24 @@ class _QuizScreenState extends State<QuizScreen> {
               ),
             ),
             const SizedBox(height: 20),
-            Text('Pontos: $pontos'),
+            Text(
+              'Pontos: $pontos',
+              style: TextStyle(
+                fontFamily: 'Poppins',
+                fontWeight: FontWeight.bold,
+                fontSize: 16,
+              ),
+            ),
           ],
         ),
       ),
     );
   }
 
-  Widget _teste() {
-    if (!canClick) {
-      return Text(
-        'affs',
-      );
-    } else {
-      return Text(
-        'oie',
-      );
-    }
-  }
-
   Widget _buildRespostaButton(Resposta alternativa) {
     if (!canClick && alternativa.correta == true) {
       return ElevatedButton(
-        onPressed: () => _responder(alternativa.correta),
+        onPressed: () => _responder(alternativa),
         style: ButtonStyle(
           backgroundColor: MaterialStateProperty.all(Color(0xFF92E3A9)),
           minimumSize: MaterialStateProperty.all(
@@ -139,6 +145,24 @@ class _QuizScreenState extends State<QuizScreen> {
         child: Text(
           alternativa.resposta,
           style: TextStyle(
+            color: Color(0xFF1B5E20),
+            fontSize: 16,
+            fontFamily: 'Poppins',
+          ),
+        ),
+      );
+    } else if (!canClick && alternativa.selected) {
+      return ElevatedButton(
+        onPressed: () => _responder(alternativa),
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all(Color(0xFFEF5350)),
+          minimumSize: MaterialStateProperty.all(
+              Size(MediaQuery.of(context).size.width * 0.9, 40.0)),
+        ),
+        child: Text(
+          alternativa.resposta,
+          style: TextStyle(
+            color: Color(0xFF790000),
             fontSize: 16,
             fontFamily: 'Poppins',
           ),
@@ -146,7 +170,7 @@ class _QuizScreenState extends State<QuizScreen> {
       );
     } else {
       return ElevatedButton(
-        onPressed: () => _responder(alternativa.correta),
+        onPressed: () => _responder(alternativa),
         style: ButtonStyle(
           minimumSize: MaterialStateProperty.all(
               Size(MediaQuery.of(context).size.width * 0.9, 40.0)),
