@@ -55,10 +55,11 @@ class _QuizScreenState extends State<QuizScreen> {
     });
   }
 
-  void _clear(){
+  void _clear() {
     for (var respostas in Pergunta.perguntas[perguntaIndex].alternativas) {
       respostas.selected = false;
-    };
+    }
+    ;
   }
 
   @override
@@ -79,40 +80,36 @@ class _QuizScreenState extends State<QuizScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Padding(
+            Container(
               padding: EdgeInsets.only(left: 16.0, right: 16.0),
-              child: Center(
-                child: Text(
-                  Pergunta.perguntas[perguntaIndex].texto,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontFamily: 'Poppins',
+              constraints: BoxConstraints(maxHeight: 250),
+              child: Column(
+                children: [
+                  Center(
+                    child: Text(
+                      Pergunta.perguntas[perguntaIndex].texto,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontFamily: 'Poppins',
+                      ),
+                    ),
                   ),
-                ),
+                  if (Pergunta.perguntas[perguntaIndex].img.isNotEmpty)
+                    Image.asset(
+                      Pergunta.perguntas[perguntaIndex].img,
+                      width: MediaQuery.of(context).size.width * 0.6,
+                      height: MediaQuery.of(context).size.height * 0.199,
+                      fit: BoxFit.contain,
+                    ),
+                ],
               ),
             ),
-            if (Pergunta.perguntas[perguntaIndex].img.isNotEmpty)
-              Image.asset(
-                Pergunta.perguntas[perguntaIndex].img,
-                width: MediaQuery.of(context).size.width * 0.6,
-                // Defina o tamanho da imagem conforme necessário
-                height: MediaQuery.of(context).size.height * 0.209,
-              ),
             Column(
               children: Pergunta.perguntas[perguntaIndex].alternativas
                   .map((alternativa) => _buildRespostaButton(alternativa))
                   .toList(),
             ),
-            SizedBox(height: 20),
-            if (mostraResposta)
-              Text(
-                'Resposta: ${Pergunta.perguntas[perguntaIndex].alternativas.firstWhere((alternativa) => alternativa.correta).resposta}',
-                style: TextStyle(
-                  fontSize: 16,
-                  fontFamily: 'Poppins',
-                ),
-              ),
             SizedBox(height: 20),
             ElevatedButton(
               style: ButtonStyle(
