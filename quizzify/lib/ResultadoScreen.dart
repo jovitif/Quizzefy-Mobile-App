@@ -10,11 +10,11 @@ class ResultadoScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     String _obterMensagem() {
       if (pontos < 5) {
-        return 'Precisa estudar mais, meu amigo. Confio no seu potencial!';
+        return '${AppLocalizations.of(context)!.ruim}';
       } else if (pontos >= 5 && pontos <= 11) {
-        return 'Você consegue melhorar. Confio que você irá vencer!';
+        return '${AppLocalizations.of(context)!.medio}';
       } else {
-        return 'Um gênio dos conhecimentso gerais, hein? Você é bom demais!';
+        return '${AppLocalizations.of(context)!.otimo}';
       }
     }
 
