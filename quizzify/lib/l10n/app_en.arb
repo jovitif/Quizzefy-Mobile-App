@@ -3,7 +3,7 @@
   "devPor": "Developed by João Sales and Luiz Ryan",
   "botaoPlay": "Play",
   "instrucoes": "Game Instructions:",
-  "instrucoes2": "Answer the questions correctly to earn points!",
+  "instrucoes2": "Answer the questions correctly to earn points! Get them wrong and lose points. Don't you know? Skip to the next one.",
   "comecar": "Start",
   "pontos": "Points:",
   "proximaPergunta": "Next Question",

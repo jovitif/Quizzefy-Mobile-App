@@ -37,23 +37,20 @@ class TelaInicial extends StatelessWidget {
             SizedBox(height: 10),
             ElevatedButton(
               onPressed: () {
-                // Navega para a tela de quiz
                 Navigator.push(
                     context,
                     MaterialPageRoute(
                         builder: (context) => TelaIntermediaria()));
               },
               style: ElevatedButton.styleFrom(
-                primary: Color(0xFFE1BEE7), // Cor de fundo
+                primary: Color(0xFFE1BEE7),
               ),
               child: Text(
-                //'Jogar',
                 AppLocalizations.of(context)!.botaoPlay,
-                //AppLocalizations.of(context).,
                 style: TextStyle(
                   fontFamily: 'Poppins',
                   fontSize: 20,
-                  color: Color(0xFF4A148C), // Cor do texto
+                  color: Color(0xFF4A148C),
                 ),
               ),
             ),

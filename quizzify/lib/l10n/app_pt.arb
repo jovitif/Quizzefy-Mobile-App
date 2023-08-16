@@ -3,7 +3,7 @@
   "devPor": "Desenvolvido por João Sales e Luiz Ryan",
   "botaoPlay": "Jogar",
   "instrucoes": "Instruções do Jogo:",
-  "instrucoes2": "Responda as perguntas corretamente para acumular pontos!",
+  "instrucoes2": "Responda as perguntas corretamente para acumular pontos! Erre-as e perca pontos. Não sabe? Pula pra próxima.",
   "comecar": "Começar",
   "pontos": "Pontos:",
   "proximaPergunta": "Próxima Pergunta",

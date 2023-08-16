@@ -20,11 +20,11 @@ class ResultadoScreen extends StatelessWidget {
 
     String _obterEmoji() {
       if (pontos < 5) {
-        return 'assets/bad-review.png'; // Substitua com o caminho do emoji triste
+        return 'assets/bad-review.png';
       } else if (pontos >= 5 && pontos <= 11) {
-        return 'assets/calm.png'; // Substitua com o caminho do emoji calmo
+        return 'assets/calm.png';
       } else {
-        return 'assets/happy.png'; // Substitua com o caminho do emoji feliz
+        return 'assets/happy.png';
       }
     }
 

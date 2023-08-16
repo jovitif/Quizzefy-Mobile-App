@@ -21,7 +21,6 @@ class TelaIntermediaria extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            // Coloque o caminho correto para o seu GIF abaixo
             Image.asset('assets/dancing.gif'),
 
             SizedBox(height: 20),
@@ -43,19 +42,18 @@ class TelaIntermediaria extends StatelessWidget {
             const SizedBox(height: 30),
             ElevatedButton(
               onPressed: () {
-                // Navega para a tela de quiz
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => QuizScreen()));
               },
               style: ElevatedButton.styleFrom(
-                primary: Color(0xFFE1BEE7), // Cor de fundo
+                primary: Color(0xFFE1BEE7),
               ),
               child: Text(
                 AppLocalizations.of(context)!.comecar,
                 style: TextStyle(
                   fontFamily: 'Poppins',
                   fontSize: 20,
-                  color: Color(0xFF4A148C), // Cor do texto
+                  color: Color(0xFF4A148C),
                 ),
               ),
             ),
