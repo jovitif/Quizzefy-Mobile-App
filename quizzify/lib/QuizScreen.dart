@@ -109,20 +109,20 @@ class _QuizScreenState extends State<QuizScreen> {
         img: 'assets/mapa.webp',
         AppLocalizations.of(context)!.pergunta08,
         [
-          Resposta('Vaticano', true, false),
-          Resposta('Mônaco', false, false),
-          Resposta('Nauru', false, false),
-          Resposta('Maldivas', false, false),
+          Resposta(AppLocalizations.of(context)!.vaticano, true, false),
+          Resposta(AppLocalizations.of(context)!.monaco, false, false),
+          Resposta(AppLocalizations.of(context)!.nauru, false, false),
+          Resposta(AppLocalizations.of(context)!.maldivas, false, false),
         ],
       ),
       Pergunta(
         img: 'assets/corpo-humano.png',
         AppLocalizations.of(context)!.pergunta09,
         [
-          Resposta('Coração', false, false),
-          Resposta('Pulmões', false, false),
-          Resposta('Fígado', false, false),
-          Resposta('Pele', true, false),
+          Resposta(AppLocalizations.of(context)!.coracao, false, false),
+          Resposta(AppLocalizations.of(context)!.pulmoes, false, false),
+          Resposta(AppLocalizations.of(context)!.figado, false, false),
+          Resposta(AppLocalizations.of(context)!.pele, true, false),
         ],
       ),
       Pergunta(
@@ -148,10 +148,10 @@ class _QuizScreenState extends State<QuizScreen> {
           img: 'assets/sol.jpg',
           AppLocalizations.of(context)!.pergunta12,
           [
-            Resposta('8 minutos', true, false),
-            Resposta('12 minutos', false, false),
-            Resposta('8 horas', false, false),
-            Resposta('12 horas', false, false),
+            Resposta(AppLocalizations.of(context)!.minutos8, true, false),
+            Resposta(AppLocalizations.of(context)!.minutos12, false, false),
+            Resposta(AppLocalizations.of(context)!.horas8, false, false),
+            Resposta(AppLocalizations.of(context)!.horas8, false, false),
           ]),
       Pergunta(
           img: 'assets/abaporu.webp',
@@ -166,46 +166,51 @@ class _QuizScreenState extends State<QuizScreen> {
           img: 'assets/sist-respiratorio.webp',
           AppLocalizations.of(context)!.pergunta14,
           [
-            Resposta('Pulmões e faringe', false, false),
-            Resposta('Esôfago e brônquios', false, false),
-            Resposta('Laringe e traqueia', true, false),
-            Resposta('Pâncreas e vasos sanguíneos', false, false),
+            Resposta(
+                AppLocalizations.of(context)!.pulmoesefaringe, false, false),
+            Resposta(
+                AppLocalizations.of(context)!.esofagoebronquios, false, false),
+            Resposta(
+                AppLocalizations.of(context)!.laringeetraqueias, true, false),
+            Resposta(
+                AppLocalizations.of(context)!.pancreasevasos, false, false),
           ]),
       Pergunta(
           img: 'assets/usina.webp',
           AppLocalizations.of(context)!.pergunta15,
           [
-            Resposta('Rússia e Espanha', false, false),
-            Resposta('Ucrânia e Brasil', true, false),
-            Resposta('Estados Unidos e Ucrânia', false, false),
-            Resposta('Japão e Brasil', false, false),
+            Resposta(AppLocalizations.of(context)!.russiaespanha, false, false),
+            Resposta(AppLocalizations.of(context)!.ucraniabrasil, true, false),
+            Resposta(AppLocalizations.of(context)!.estadosunidoseucrania, false,
+                false),
+            Resposta(AppLocalizations.of(context)!.japaoebrasil, false, false),
           ]),
       Pergunta(
           img: 'assets/fogo.webp',
           AppLocalizations.of(context)!.pergunta16,
           [
-            Resposta('Paleolítico', true, false),
-            Resposta('Neolítico', false, false),
-            Resposta('Idade dos Metais', false, false),
-            Resposta('Período da Pedra Polida', false, false),
+            Resposta(AppLocalizations.of(context)!.paleolitico, true, false),
+            Resposta(AppLocalizations.of(context)!.neolitico, false, false),
+            Resposta(AppLocalizations.of(context)!.idademetais, false, false),
+            Resposta(AppLocalizations.of(context)!.pedrapolida, false, false),
           ]),
       Pergunta(
           img: 'assets/existo.webp',
           AppLocalizations.of(context)!.pergunta17,
           [
-            Resposta('Platão', false, false),
-            Resposta('Sócrates', false, false),
-            Resposta('Descartes', true, false),
-            Resposta('Voltaire', false, false),
+            Resposta(AppLocalizations.of(context)!.platao, false, false),
+            Resposta(AppLocalizations.of(context)!.socrates, false, false),
+            Resposta(AppLocalizations.of(context)!.descartes, true, false),
+            Resposta(AppLocalizations.of(context)!.voltaire, false, false),
           ]),
       Pergunta(
           img: 'assets/portugues.webp',
           AppLocalizations.of(context)!.pergunta18,
           [
-            Resposta('Filipinas', false, false),
-            Resposta('Portugal', false, false),
-            Resposta('Moçambique', false, false),
-            Resposta('Macau', true, false),
+            Resposta(AppLocalizations.of(context)!.filipinas, false, false),
+            Resposta(AppLocalizations.of(context)!.portugal, false, false),
+            Resposta(AppLocalizations.of(context)!.mocambique, false, false),
+            Resposta(AppLocalizations.of(context)!.macau, true, false),
           ]),
     ];
 
