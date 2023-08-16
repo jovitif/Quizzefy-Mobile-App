@@ -2,9 +2,12 @@ class Resposta {
   final String resposta;
   final bool correta;
   bool selected;
-  Resposta(this.resposta, this.correta, this.selected);
+  bool context;
+  Resposta(this.resposta, this.correta, this.selected, {this.context = false});
 
-  reset(bool sel){
-    this.selected = sel;
+  void reset(bool newContext) {
+    context = newContext;
+    selected = false;
   }
+
 }

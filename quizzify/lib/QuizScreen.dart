@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:quizzify/Pergunta.dart'; // Importe a classe Pergunta
-import 'package:quizzify/Resposta.dart'; // Importe a classe Resposta
+import 'package:quizzify/Pergunta.dart';
+import 'package:quizzify/Resposta.dart';
 import 'package:quizzify/ResultadoScreen.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -11,24 +11,23 @@ class QuizScreen extends StatefulWidget {
 
 class _QuizScreenState extends State<QuizScreen> {
   int perguntaIndex = 0;
-  bool mostraResposta = false;
   int pontos = 0;
   bool canClick = true;
+  bool clicked = false;
 
   void _responder(Resposta alternativa) {
     setState(() {
-      mostraResposta = true;
-    });
-
     if (!alternativa.correta && canClick) {
       pontos--;
       alternativa.selected = true;
+      clicked = true;
     }
     if (alternativa.correta && canClick) {
       pontos++;
     }
 
     canClick = false;
+    });
   }
 
   @override
@@ -74,7 +73,6 @@ class _QuizScreenState extends State<QuizScreen> {
           Resposta('Jorge Luis Borges', false, false),
         ],
       ),
-      // Adicione mais perguntas aqui
       Pergunta(
         img: 'assets/sist-solar.webp',
         AppLocalizations.of(context)!.pergunta05,
@@ -215,20 +213,20 @@ class _QuizScreenState extends State<QuizScreen> {
     ];
 
     void _clear() {
-      for (var respostas in perguntas[perguntaIndex].alternativas) {
-        respostas.selected = false;
-      }
-      ;
+      setState(() {
+        for (var resposta in perguntas[perguntaIndex].alternativas) {
+          resposta.selected = false;
+        }
+      });
     }
 
     void _proximo() {
       setState(() {
         perguntaIndex = (perguntaIndex + 1) % perguntas.length;
-        mostraResposta = false;
         canClick = true;
+        clicked = false;
 
         if (perguntaIndex == 0) {
-          // Todas as perguntas foram respondidas
           Navigator.pushReplacement(
             context,
             MaterialPageRoute(builder: (context) => ResultadoScreen(pontos)),
@@ -241,7 +239,8 @@ class _QuizScreenState extends State<QuizScreen> {
     @override
     void initState() {
       super.initState();
-      perguntas.shuffle(); // Embaralha as perguntas no início do quiz
+      perguntas.shuffle();
+      clicked = false;
       _clear();
     }
 
@@ -268,7 +267,7 @@ class _QuizScreenState extends State<QuizScreen> {
                 children: [
                   Center(
                     child: Text(
-                      Pergunta.perguntas[perguntaIndex].texto,
+                      perguntas[perguntaIndex].texto,
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 20,
@@ -276,9 +275,9 @@ class _QuizScreenState extends State<QuizScreen> {
                       ),
                     ),
                   ),
-                  if (Pergunta.perguntas[perguntaIndex].img.isNotEmpty)
+                  if (perguntas[perguntaIndex].img.isNotEmpty)
                     Image.asset(
-                      Pergunta.perguntas[perguntaIndex].img,
+                      perguntas[perguntaIndex].img,
                       width: MediaQuery.of(context).size.width * 0.6,
                       height: MediaQuery.of(context).size.height * 0.199,
                       fit: BoxFit.contain,
@@ -286,13 +285,6 @@ class _QuizScreenState extends State<QuizScreen> {
                 ],
               ),
             ),
-            if (perguntas[perguntaIndex].img.isNotEmpty)
-              Image.asset(
-                perguntas[perguntaIndex].img,
-                width: MediaQuery.of(context).size.width * 0.6,
-                // Defina o tamanho da imagem conforme necessário
-                height: MediaQuery.of(context).size.height * 0.209,
-              ),
             Column(
               children: perguntas[perguntaIndex]
                   .alternativas
@@ -329,6 +321,7 @@ class _QuizScreenState extends State<QuizScreen> {
   }
 
   Widget _buildRespostaButton(Resposta alternativa) {
+    print("teste: ${alternativa.selected}");
     if (!canClick && alternativa.correta == true) {
       return ElevatedButton(
         onPressed: () => _responder(alternativa),
@@ -346,7 +339,7 @@ class _QuizScreenState extends State<QuizScreen> {
           ),
         ),
       );
-    } else if (!canClick && alternativa.selected) {
+    } else if (!canClick && clicked) {
       return ElevatedButton(
         onPressed: () => _responder(alternativa),
         style: ButtonStyle(
