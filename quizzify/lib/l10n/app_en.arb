@@ -24,5 +24,10 @@
   "pergunta15": "Chernobyl and Cesium-137 are part of the greatest nuclear accidents in history. In which countries did they happen?",
   "pergunta16": "In what prehistoric period was fire discovered?",
   "pergunta17": "Whose famous quote is 'I think, therefore I am'?",
-  "pergunta18": "In which Asian location is Portuguese an official language?"
+  "pergunta18": "In which Asian location is Portuguese an official language?",
+  "pontuacaoFinal": "Final Score:",
+  "terra": "Earth",
+  "marte": "Mars",
+  "venus": "Venus",
+  "jupiter": "Jupiter"
 }

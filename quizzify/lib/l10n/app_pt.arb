@@ -24,5 +24,11 @@
   "pergunta15": "Chernobyl e Césio-137 fazem parte dos maiores acidentes nucleares da história. Em que países aconteceram ?",
   "pergunta16": "Em que período da pré-história o fogo foi descoberto ?",
   "pergunta17": "De quem é a famosa frase “Penso, logo existo” ?",
-  "pergunta18": "Em qual local da Ásia o português é língua oficial ?"
+  "pergunta18": "Em qual local da Ásia o português é língua oficial ?",
+  "pontuacaoFinal": "Pontuação Final:",
+  "estudeMais": "Precisa estudar mais, meu amigo. Confio no seu potencial!",
+  "terra": "Terra",
+  "marte":"Marte",
+  "venus": "Vênus",
+  "jupiter":"Jupiter"
 }
