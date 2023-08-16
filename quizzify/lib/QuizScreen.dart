@@ -14,25 +14,28 @@ class _QuizScreenState extends State<QuizScreen> {
   bool mostraResposta = false;
   int pontos = 0;
   bool canClick = true;
+  bool teste = false;
 
   void _responder(Resposta alternativa) {
-    setState(() {
-      mostraResposta = true;
-    });
+      setState(() {
+        mostraResposta = true;
 
-    if (!alternativa.correta && canClick) {
-      pontos--;
-      alternativa.selected = true;
-    }
-    if (alternativa.correta && canClick) {
-      pontos++;
-    }
+        if (!alternativa.correta && canClick) {
+          pontos--;
+          alternativa.reset(true);
+        }
+        if (alternativa.correta && canClick) {
+          pontos++;
+        }
 
-    canClick = false;
+        canClick = false;
+      });
   }
 
   @override
   Widget build(BuildContext context) {
+    setState((){});
+
     List<Pergunta> perguntas = [
       Pergunta(
         img: 'assets/matematica.jpg',
@@ -213,7 +216,6 @@ class _QuizScreenState extends State<QuizScreen> {
       for (var respostas in perguntas[perguntaIndex].alternativas) {
         respostas.selected = false;
       }
-      ;
     }
 
     void _proximo() {
@@ -236,7 +238,7 @@ class _QuizScreenState extends State<QuizScreen> {
     @override
     void initState() {
       super.initState();
-      perguntas.shuffle(); // Embaralha as perguntas no início do quiz
+      perguntas.shuffle();
       _clear();
     }
 
@@ -263,7 +265,7 @@ class _QuizScreenState extends State<QuizScreen> {
                 children: [
                   Center(
                     child: Text(
-                      Pergunta.perguntas[perguntaIndex].texto,
+                      perguntas[perguntaIndex].texto,
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 20,
@@ -271,9 +273,9 @@ class _QuizScreenState extends State<QuizScreen> {
                       ),
                     ),
                   ),
-                  if (Pergunta.perguntas[perguntaIndex].img.isNotEmpty)
+                  if (perguntas[perguntaIndex].img.isNotEmpty)
                     Image.asset(
-                      Pergunta.perguntas[perguntaIndex].img,
+                      perguntas[perguntaIndex].img,
                       width: MediaQuery.of(context).size.width * 0.6,
                       height: MediaQuery.of(context).size.height * 0.199,
                       fit: BoxFit.contain,
@@ -281,13 +283,6 @@ class _QuizScreenState extends State<QuizScreen> {
                 ],
               ),
             ),
-            if (perguntas[perguntaIndex].img.isNotEmpty)
-              Image.asset(
-                perguntas[perguntaIndex].img,
-                width: MediaQuery.of(context).size.width * 0.6,
-                // Defina o tamanho da imagem conforme necessário
-                height: MediaQuery.of(context).size.height * 0.209,
-              ),
             Column(
               children: perguntas[perguntaIndex]
                   .alternativas
