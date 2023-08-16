@@ -24,5 +24,10 @@
   "pergunta15": "Chernobyl y Cesio-137 son parte de los mayores accidentes nucleares de la historia. ¿En qué países ocurrieron?",
   "pergunta16": "¿En qué período prehistórico se descubrió el fuego?",
   "pergunta17": "¿De quién es la famosa frase 'Pienso, luego existo'?",
-  "pergunta18": "¿En qué lugar de Asia el portugués es idioma oficial?"
+  "pergunta18": "¿En qué lugar de Asia el portugués es idioma oficial?",
+  "pontuacaoFinal": "Puntuación Final:",
+  "terra": "Tierra",
+"marte": "Marte",
+"venus": "Venus",
+"jupiter": "Júpiter"
 }

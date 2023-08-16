@@ -15,13 +15,6 @@ class _QuizScreenState extends State<QuizScreen> {
   int pontos = 0;
   bool canClick = true;
 
-  @override
-  void initState() {
-    super.initState();
-    Pergunta.perguntas.shuffle(); // Embaralha as perguntas no início do quiz
-    _clear();
-  }
-
   void _responder(Resposta alternativa) {
     setState(() {
       mostraResposta = true;
@@ -38,31 +31,215 @@ class _QuizScreenState extends State<QuizScreen> {
     canClick = false;
   }
 
-  void _proximo() {
-    setState(() {
-      perguntaIndex = (perguntaIndex + 1) % Pergunta.perguntas.length;
-      mostraResposta = false;
-      canClick = true;
-
-      if (perguntaIndex == 0) {
-        // Todas as perguntas foram respondidas
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => ResultadoScreen(pontos)),
-        );
-      }
-      _clear();
-    });
-  }
-
-  void _clear(){
-    for (var respostas in Pergunta.perguntas[perguntaIndex].alternativas) {
-      respostas.selected = false;
-    };
-  }
-
   @override
   Widget build(BuildContext context) {
+    List<Pergunta> perguntas = [
+      Pergunta(
+        img: 'assets/matematica.jpg',
+        AppLocalizations.of(context)!.pergunta01,
+        [
+          Resposta('31', true, false),
+          Resposta('35', false, false),
+          Resposta('29', false, false),
+          Resposta('32', false, false),
+        ],
+      ),
+      Pergunta(
+        img: 'assets/presidentes.jpg',
+        AppLocalizations.of(context)!.pergunta02,
+        [
+          Resposta('Lula', true, false),
+          Resposta('Bolsonaro', false, false),
+          Resposta('Trump', false, false),
+          Resposta('Taylor Swift', false, false),
+        ],
+      ),
+      Pergunta(
+        img: 'assets/franca.webp',
+        AppLocalizations.of(context)!.pergunta03,
+        [
+          Resposta('Madrid', false, false),
+          Resposta('Berlim', false, false),
+          Resposta('Roma', false, false),
+          Resposta('Paris', true, false),
+        ],
+      ),
+      Pergunta(
+        img: 'assets/dom-quixote.jpg',
+        AppLocalizations.of(context)!.pergunta04,
+        [
+          Resposta('Fernando Pessoa', false, false),
+          Resposta('Miguel de Cervantes', true, false),
+          Resposta('Gabriel García Márquez', false, false),
+          Resposta('Jorge Luis Borges', false, false),
+        ],
+      ),
+      // Adicione mais perguntas aqui
+      Pergunta(
+        img: 'assets/sist-solar.webp',
+        AppLocalizations.of(context)!.pergunta05,
+        [
+          Resposta(AppLocalizations.of(context)!.terra, false, false),
+          Resposta(AppLocalizations.of(context)!.marte, false, false),
+          Resposta(AppLocalizations.of(context)!.venus, false, false),
+          Resposta(AppLocalizations.of(context)!.jupiter, true, false),
+        ],
+      ),
+      Pergunta(
+        img: 'assets/oxigenio.jpg',
+        AppLocalizations.of(context)!.pergunta06,
+        [
+          Resposta('O', true, false),
+          Resposta('Ox', false, false),
+          Resposta('Oi', false, false),
+          Resposta('Oz', false, false),
+        ],
+      ),
+      Pergunta(
+        img: 'assets/monalisa.jpg',
+        AppLocalizations.of(context)!.pergunta07,
+        [
+          Resposta('Pablo Picasso', false, false),
+          Resposta('Vincent van Gogh', false, false),
+          Resposta('Leonardo da Vinci', true, false),
+          Resposta('Michelangelo', false, false),
+        ],
+      ),
+      Pergunta(
+        img: 'assets/mapa.webp',
+        AppLocalizations.of(context)!.pergunta08,
+        [
+          Resposta('Vaticano', true, false),
+          Resposta('Mônaco', false, false),
+          Resposta('Nauru', false, false),
+          Resposta('Maldivas', false, false),
+        ],
+      ),
+      Pergunta(
+        img: 'assets/corpo-humano.png',
+        AppLocalizations.of(context)!.pergunta09,
+        [
+          Resposta('Coração', false, false),
+          Resposta('Pulmões', false, false),
+          Resposta('Fígado', false, false),
+          Resposta('Pele', true, false),
+        ],
+      ),
+      Pergunta(
+        img: 'assets/arco-iris.webp',
+        AppLocalizations.of(context)!.pergunta10,
+        [
+          Resposta('5', false, false),
+          Resposta('6', false, false),
+          Resposta('7', true, false),
+          Resposta('8', false, false),
+        ],
+      ),
+      Pergunta(
+          img: 'assets/futebol.jpg',
+          AppLocalizations.of(context)!.pergunta11,
+          [
+            Resposta('12', false, false),
+            Resposta('7', true, false),
+            Resposta('10', false, false),
+            Resposta('6', false, false),
+          ]),
+      Pergunta(
+          img: 'assets/sol.jpg',
+          AppLocalizations.of(context)!.pergunta12,
+          [
+            Resposta('8 minutos', true, false),
+            Resposta('12 minutos', false, false),
+            Resposta('8 horas', false, false),
+            Resposta('12 horas', false, false),
+          ]),
+      Pergunta(
+          img: 'assets/abaporu.webp',
+          AppLocalizations.of(context)!.pergunta13,
+          [
+            Resposta('Anita Malfatti', false, false),
+            Resposta('Candido Portinari', false, false),
+            Resposta('Romero Britto', false, false),
+            Resposta('Tarsila do Amaral', true, false),
+          ]),
+      Pergunta(
+          img: 'assets/sist-respiratorio.webp',
+          AppLocalizations.of(context)!.pergunta14,
+          [
+            Resposta('Pulmões e faringe', false, false),
+            Resposta('Esôfago e brônquios', false, false),
+            Resposta('Laringe e traqueia', true, false),
+            Resposta('Pâncreas e vasos sanguíneos', false, false),
+          ]),
+      Pergunta(
+          img: 'assets/usina.webp',
+          AppLocalizations.of(context)!.pergunta15,
+          [
+            Resposta('Rússia e Espanha', false, false),
+            Resposta('Ucrânia e Brasil', true, false),
+            Resposta('Estados Unidos e Ucrânia', false, false),
+            Resposta('Japão e Brasil', false, false),
+          ]),
+      Pergunta(
+          img: 'assets/fogo.webp',
+          AppLocalizations.of(context)!.pergunta16,
+          [
+            Resposta('Paleolítico', true, false),
+            Resposta('Neolítico', false, false),
+            Resposta('Idade dos Metais', false, false),
+            Resposta('Período da Pedra Polida', false, false),
+          ]),
+      Pergunta(
+          img: 'assets/existo.webp',
+          AppLocalizations.of(context)!.pergunta17,
+          [
+            Resposta('Platão', false, false),
+            Resposta('Sócrates', false, false),
+            Resposta('Descartes', true, false),
+            Resposta('Voltaire', false, false),
+          ]),
+      Pergunta(
+          img: 'assets/portugues.webp',
+          AppLocalizations.of(context)!.pergunta18,
+          [
+            Resposta('Filipinas', false, false),
+            Resposta('Portugal', false, false),
+            Resposta('Moçambique', false, false),
+            Resposta('Macau', true, false),
+          ]),
+    ];
+
+    void _clear() {
+      for (var respostas in perguntas[perguntaIndex].alternativas) {
+        respostas.selected = false;
+      }
+      ;
+    }
+
+    void _proximo() {
+      setState(() {
+        perguntaIndex = (perguntaIndex + 1) % perguntas.length;
+        mostraResposta = false;
+        canClick = true;
+
+        if (perguntaIndex == 0) {
+          // Todas as perguntas foram respondidas
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => ResultadoScreen(pontos)),
+          );
+        }
+        _clear();
+      });
+    }
+
+    @override
+    void initState() {
+      super.initState();
+      perguntas.shuffle(); // Embaralha as perguntas no início do quiz
+      _clear();
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Quizzify',
@@ -83,7 +260,7 @@ class _QuizScreenState extends State<QuizScreen> {
               padding: EdgeInsets.only(left: 16.0, right: 16.0),
               child: Center(
                 child: Text(
-                  Pergunta.perguntas[perguntaIndex].texto,
+                  perguntas[perguntaIndex].texto,
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 20,
@@ -92,22 +269,23 @@ class _QuizScreenState extends State<QuizScreen> {
                 ),
               ),
             ),
-            if (Pergunta.perguntas[perguntaIndex].img.isNotEmpty)
+            if (perguntas[perguntaIndex].img.isNotEmpty)
               Image.asset(
-                Pergunta.perguntas[perguntaIndex].img,
+                perguntas[perguntaIndex].img,
                 width: MediaQuery.of(context).size.width * 0.6,
                 // Defina o tamanho da imagem conforme necessário
                 height: MediaQuery.of(context).size.height * 0.209,
               ),
             Column(
-              children: Pergunta.perguntas[perguntaIndex].alternativas
+              children: perguntas[perguntaIndex]
+                  .alternativas
                   .map((alternativa) => _buildRespostaButton(alternativa))
                   .toList(),
             ),
             SizedBox(height: 20),
             if (mostraResposta)
               Text(
-                'Resposta: ${Pergunta.perguntas[perguntaIndex].alternativas.firstWhere((alternativa) => alternativa.correta).resposta}',
+                'Resposta: ${perguntas[perguntaIndex].alternativas.firstWhere((alternativa) => alternativa.correta).resposta}',
                 style: TextStyle(
                   fontSize: 16,
                   fontFamily: 'Poppins',
