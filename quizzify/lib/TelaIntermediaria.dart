@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'QuizScreen.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class TelaIntermediaria extends StatelessWidget {
   @override
@@ -23,8 +24,8 @@ class TelaIntermediaria extends StatelessWidget {
             Image.asset('assets/dancing.gif'),
 
             SizedBox(height: 20),
-            const Text(
-              'Instruções do Jogo:',
+            Text(
+              AppLocalizations.of(context)!.instrucoes,
               style: TextStyle(
                 fontFamily: 'Poppins',
                 fontSize: 18,
@@ -33,8 +34,8 @@ class TelaIntermediaria extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 2),
-            const Text(
-              'Responda às perguntas corretamente para acumular pontos!',
+            Text(
+              AppLocalizations.of(context)!.instrucoes2,
               style: TextStyle(fontFamily: 'Poppins', fontSize: 16),
               textAlign: TextAlign.center,
             ),
@@ -48,8 +49,8 @@ class TelaIntermediaria extends StatelessWidget {
               style: ElevatedButton.styleFrom(
                 primary: Color(0xFFE1BEE7), // Cor de fundo
               ),
-              child: const Text(
-                'Começar',
+              child: Text(
+                AppLocalizations.of(context)!.comecar,
                 style: TextStyle(
                   fontFamily: 'Poppins',
                   fontSize: 20,

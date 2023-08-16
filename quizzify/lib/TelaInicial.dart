@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:quizzify/QuizScreen.dart';
 import 'package:quizzify/TelaIntermediaria.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:intl/intl.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:quizzify/l10n/L10n.dart';
 
 class TelaInicial extends StatelessWidget {
   @override
@@ -27,11 +23,10 @@ class TelaInicial extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Image.asset('assets/pensando.png'),
-            const Padding(
+            Padding(
               padding: EdgeInsets.only(left: 16.0, right: 16.0),
               child: Text(
-                "Seja bem-vindo ao Quizzify!",
-                // AppLocalizations.of(context)!.language,
+                AppLocalizations.of(context)!.boasVindas,
                 style: TextStyle(
                     fontFamily: 'Poppins',
                     fontSize: 24,
@@ -52,7 +47,9 @@ class TelaInicial extends StatelessWidget {
                 primary: Color(0xFFE1BEE7), // Cor de fundo
               ),
               child: Text(
-                'Jogar',
+                //'Jogar',
+                AppLocalizations.of(context)!.botaoPlay,
+                //AppLocalizations.of(context).,
                 style: TextStyle(
                   fontFamily: 'Poppins',
                   fontSize: 20,
@@ -62,7 +59,7 @@ class TelaInicial extends StatelessWidget {
             ),
             SizedBox(height: 40),
             Text(
-              'dev by João Sales e Luiz Ryan.',
+              AppLocalizations.of(context)!.devPor,
               style: TextStyle(fontFamily: 'Poppins', fontSize: 16),
               textAlign: TextAlign.center,
             ),

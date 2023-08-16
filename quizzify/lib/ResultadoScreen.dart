@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ResultadoScreen extends StatelessWidget {
   final int pontos;
@@ -50,7 +51,7 @@ class ResultadoScreen extends StatelessWidget {
               ),
             ),
             Text(
-              '$pontos pontos',
+              '${AppLocalizations.of(context)!.pontos} $pontos',
               style: TextStyle(
                   fontSize: 36,
                   fontWeight: FontWeight.bold,

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:quizzify/Pergunta.dart'; // Importe a classe Pergunta
 import 'package:quizzify/Resposta.dart'; // Importe a classe Resposta
 import 'package:quizzify/ResultadoScreen.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class QuizScreen extends StatefulWidget {
   @override
@@ -112,7 +113,7 @@ class _QuizScreenState extends State<QuizScreen> {
               ),
               onPressed: _proximo,
               child: Text(
-                'Próxima Pergunta',
+                AppLocalizations.of(context)!.proximaPergunta,
                 style: TextStyle(
                   fontFamily: 'Poppins',
                 ),
@@ -120,7 +121,7 @@ class _QuizScreenState extends State<QuizScreen> {
             ),
             const SizedBox(height: 20),
             Text(
-              'Pontos: $pontos',
+              '${AppLocalizations.of(context)!.pontos} $pontos',
               style: TextStyle(
                 fontFamily: 'Poppins',
                 fontWeight: FontWeight.bold,
