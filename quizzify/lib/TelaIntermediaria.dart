@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'Pergunta.dart';
 import 'QuizScreen.dart';
 
 class TelaIntermediaria extends StatelessWidget {

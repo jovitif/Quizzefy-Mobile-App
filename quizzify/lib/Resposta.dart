@@ -4,7 +4,7 @@ class Resposta {
   bool selected;
   Resposta(this.resposta, this.correta, this.selected);
 
-  setState(bool sel){
+  reset(bool sel){
     this.selected = sel;
   }
 }

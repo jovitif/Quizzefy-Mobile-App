@@ -18,6 +18,7 @@ class _QuizScreenState extends State<QuizScreen> {
   void initState() {
     super.initState();
     Pergunta.perguntas.shuffle(); // Embaralha as perguntas no início do quiz
+    _clear();
   }
 
   void _responder(Resposta alternativa) {
@@ -27,7 +28,7 @@ class _QuizScreenState extends State<QuizScreen> {
 
     if (!alternativa.correta && canClick) {
       pontos--;
-      alternativa.setState(true);
+      alternativa.selected = true;
     }
     if (alternativa.correta && canClick) {
       pontos++;
@@ -49,7 +50,14 @@ class _QuizScreenState extends State<QuizScreen> {
           MaterialPageRoute(builder: (context) => ResultadoScreen(pontos)),
         );
       }
+      _clear();
     });
+  }
+
+  void _clear(){
+    for (var respostas in Pergunta.perguntas[perguntaIndex].alternativas) {
+      respostas.selected = false;
+    };
   }
 
   @override
