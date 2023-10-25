@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quizzify/TelaIntermediaria.dart';
+import 'TelaIntermediaria.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class TelaInicial extends StatelessWidget {
@@ -8,7 +8,7 @@ class TelaInicial extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Quizzify',
+          'Quizzefy',
           style: TextStyle(
             fontFamily: 'Poppins',
             fontSize: 16,

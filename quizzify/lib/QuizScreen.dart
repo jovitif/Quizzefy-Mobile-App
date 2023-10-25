@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:quizzify/Pergunta.dart';
-import 'package:quizzify/Resposta.dart';
-import 'package:quizzify/ResultadoScreen.dart';
+import 'Pergunta.dart';
+import 'Resposta.dart';
+import 'ResultadoScreen.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class QuizScreen extends StatefulWidget {
@@ -17,16 +17,16 @@ class _QuizScreenState extends State<QuizScreen> {
 
   void _responder(Resposta alternativa) {
     setState(() {
-    if (!alternativa.correta && canClick) {
-      pontos--;
-      alternativa.selected = true;
-      clicked = true;
-    }
-    if (alternativa.correta && canClick) {
-      pontos++;
-    }
+      if (!alternativa.correta && canClick) {
+        pontos--;
+        alternativa.selected = true;
+        clicked = true;
+      }
+      if (alternativa.correta && canClick) {
+        pontos++;
+      }
 
-    canClick = false;
+      canClick = false;
     });
   }
 
@@ -50,7 +50,7 @@ class _QuizScreenState extends State<QuizScreen> {
           Resposta('Lula', true, false),
           Resposta('Bolsonaro', false, false),
           Resposta('Trump', false, false),
-          Resposta('Taylor Swift', false, false),
+          Resposta('Dilma Rousseff', false, false),
         ],
       ),
       Pergunta(
@@ -246,7 +246,7 @@ class _QuizScreenState extends State<QuizScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Quizzify',
+        title: const Text('Quizzefy',
             style: TextStyle(
               fontFamily: 'Poppins',
               fontSize: 16,
@@ -262,7 +262,8 @@ class _QuizScreenState extends State<QuizScreen> {
           children: <Widget>[
             Container(
               padding: EdgeInsets.only(left: 16.0, right: 16.0),
-              constraints: BoxConstraints(maxHeight: 250),
+              margin: EdgeInsets.only(bottom: 60.0),
+              // constraints: BoxConstraints(maxHeight: 250),
               child: Column(
                 children: [
                   Center(

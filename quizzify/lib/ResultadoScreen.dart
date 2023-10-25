@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:lottie/lottie.dart';
 
 class ResultadoScreen extends StatelessWidget {
   final int pontos;
@@ -20,17 +21,17 @@ class ResultadoScreen extends StatelessWidget {
 
     String _obterEmoji() {
       if (pontos < 5) {
-        return 'assets/bad-review.png';
+        return 'assets/bad-review.json';
       } else if (pontos >= 5 && pontos <= 11) {
-        return 'assets/calm.png';
+        return 'assets/calm.json';
       } else {
-        return 'assets/happy.png';
+        return 'assets/happy.json';
       }
     }
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Quizzify',
+        title: const Text('Quizzefy',
             style: TextStyle(
               fontFamily: 'Poppins',
               fontSize: 16,
@@ -70,10 +71,10 @@ class ResultadoScreen extends StatelessWidget {
               ),
             ),
             SizedBox(height: 20),
-            Image.asset(
+            Lottie.asset(
               _obterEmoji(),
-              width: 60,
-              height: 60,
+              width: 100,
+              height: 100,
             ),
           ],
         ),

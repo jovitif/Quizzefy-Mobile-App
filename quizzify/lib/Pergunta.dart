@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:quizzify/Resposta.dart';
+import 'Resposta.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'l10n/L10n.dart';
 
